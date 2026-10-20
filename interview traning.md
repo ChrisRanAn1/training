@@ -1,6 +1,6 @@
 # L1 Code Training Methodology
 
-A systematic training approach for blockchain L1 underlying code and compiler source code, designed to improve code comprehension, problem decomposition, hypothesis verification, and reasoning articulation skills.
+A systematic training approach for blockchain L1 underlying code and compiler source code, designed to improve code comprehension, problem decomposition, assumption verification, and reasoning articulation skills.
 
 ## Training Objectives
 
@@ -8,7 +8,7 @@ Core Competencies:
 
 1. **Code Comprehension**: Quickly understand the architecture and logic of unfamiliar code
 2. **Problem Decomposition**: Break down complex problems into verifiable sub-problems
-3. **Hypothesis Verification**: Propose hypothesis → Design verification method → Draw conclusions
+3. **assumption Verification**: Propose assumptions → Design verification method → Draw conclusions
 4. **Communication Skills**: Clearly articulate reasoning processes
 
 ## Question Design Methodology
