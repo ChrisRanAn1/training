@@ -86,3 +86,42 @@
 84. 每条指令执行前后，池子总资产、LP 总份额、各类应付手续费三者的关系是否保持一致？
 85. 程序的升级权限归谁？这对用户意味着什么？
 86. 编译时的 feature（devnet/localnet）如果在主网部署时开错了，会发生什么？
+88. creator fee 的 share_rate 是在 swap 时确定，还是在领取时确定？
+89. 创建者领取前，admin 把 creator_fee_share 的 share_rate 设成 1_000_000，已累计的 creator fee 会全部归 protocol 吗？
+90. 调用 collect_creator_fee_permissionless 的人，能不能让创建者少拿到钱？
+91. 调用者能不能通过传入不同的 creator_fee_share 账户，让程序用 amm_config 的默认 share_rate 代替自定义的 share_rate？
+92. 同一个创建者在两个不同 amm_config 下各开一个池子，只为其中一个 config 创建了 creator_fee_share，另一个池子领取时用的是哪个 share_rate？
+93. 调用 settle_creator_fee 前后，vault_amount_without_fee 的返回值会变吗？
+94. creator fee 里分给 protocol 的那部分，最终通过哪条指令转出池子？
+95. 创建者的 token 账户被冻结后，池子里累计的 creator fee 还能被领走吗？
+96. collect_creator_fee 和 collect_creator_fee_permissionless 在账户约束上有什么不同？
+97. pool_creator 是一个 PDA 时，collect_creator_fee_permissionless 能成功吗？
+98. creator_fee_on 为 OnlyToken0，用户用 token_1 换 token_0 时，creator fee 从输入侧还是输出侧收取？
+99. creator fee 从输出侧收取时，swap 后 vault 减少的数量等于转给用户的数量吗？
+100. creator fee 从输入侧收取时，合并计算再拆分得到的 trade fee，和单独按 trade_fee_rate 计算的 trade fee，最多相差多少？
+101. trade_fee_rate 和 creator_fee_rate 都设成各自允许的最大值时，swap 会发生什么？
+102. swap_base_output 在 creator fee 从输入侧收取时，用户实际支付的数量包含 creator fee 吗？
+103. 同样的输入金额，creator fee 从输入侧收和从输出侧收，用户拿到的输出哪个更多？
+104. 用 initialize 开的池子，之后有没有办法开启 creator fee？
+105. 有没有代码路径在 enable_creator_fee 为 false 时仍然收取 creator fee？
+106. initialize_with_permission 开出的池子，pool_creator 是 payer 还是另一个账户？
+107. 在 open_time 之前能不能 deposit？
+108. 开池时 init_amount_0 和 init_amount_1 都传 1，能成功吗？
+109. 在 remaining_accounts 里传入另一个 mint 的 support_mint_associated 账户，能让不在白名单里的 Token-2022 mint 开池成功吗？
+110. 一个 Token-2022 mint 的 support_mint_associated 被关闭后，这个 mint 已有的池子还能 swap 吗？
+111. 带 InterestBearingConfig 扩展的 mint，池子计算储备时用的是原始数量还是 UI 数量？
+112. 输出 token 带 transfer fee 时，minimum_amount_out 是和扣 transfer fee 之前还是之后的数量比较？
+113. swap 后的 k 检查，用的是扣除各类手续费后的储备，还是 vault 实际余额？
+114. oracle 的价格是在 swap 执行前还是执行后更新？
+115. recent_epoch 被用来做什么？
+116. lp_supply 和 LP mint 的链上 supply，在什么情况下会不相等？
+117. withdraw 计算份额时，分母用的是 lp_supply 还是 LP mint 的 supply？
+118. admin 修改 trade_fee_rate 后，已存在的池子下一笔 swap 立刻按新费率收费吗？
+119. admin 修改 protocol_fee_rate 后，修改前已累计的 protocol fee 会被重新计算吗？
+120. 同一笔交易里先 deposit、中间有人 swap、再 withdraw，这个 LP 能分到这笔 swap 的手续费吗？
+121. 先把价格推到极端，再用极小金额 deposit 后立刻 withdraw，能拿回比存入更多的价值吗？
+122. 每累计 1 个单位的 creator fee 就领取一次，protocol 能分到 creator fee 吗？
+123. 有没有办法让 vault 余额小于三类手续费之和？
+124. 池子的 swap 被禁用时，creator fee 还能领取吗？
+125. 在 creator fee 功能上线前创建的旧池子，enable_creator_fee 的值是多少？
+126. protocol fee 的接收地址由谁决定？
